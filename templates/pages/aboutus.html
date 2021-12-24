@@ -1,0 +1,54 @@
+{% extends "base.html" %} {% load static %}
+
+<!--  -->
+{% block title %} About - {{ block.super }} {% endblock title %}
+<!--  -->
+{% block styles %} {% endblock styles %}
+<!--  -->
+{% block content %}
+<section id="showcase-inner" class="py-5 text-white">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-md-12">
+        <h1 class="display-6">About Us</h1>
+        <p class="lead">
+          In the long term, automated car parking systems are likely to be more cost-effective when compared to traditional parking garages.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="py-4">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <h2>We For The Perfect</h2>
+        <p class="lead">
+           The effect of large-scale parking in-city has long been contentious. Elimination of historic structures for garages or lots led to historical preservation movements in many cities. The acreage devoted to parking is widely seen as disrupting a walkable urban fabric, maximizing convenience to each individual building.
+        </p>
+        <img src="{% static 'img/image-intro-desktop.jpg' %}" alt="" />
+        <p class="mt-4">
+          Facilities include indoor and outdoor private property belonging to a house, the side of the road where metered or laid out for such use, a parking lot (North American English) or car park (British English), Indoor and outdoor multi-level structures, shared underground parking facilities and facilities for particular.
+        There are two types of car parking systems: traditional and automated. In the long term, automated car parking systems are likely to be more cost-effective when compared to traditional parking garages. Automatic multi-story automated.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Work -->
+<section id="work" class="bg-dark text-white text-center">
+  <h2 class="display-5">We Work For You</h2>
+  <h5>
+   Take advantage of our Concierge services and have us help you out.
+  </h5>
+  <hr />
+  <a
+    href="{% url 'pages:contactus' %}"
+    class="btn btn-secondary text-white btn-lg"
+    >Contact Us</a
+  >
+</section>
+
+{% endblock content %}

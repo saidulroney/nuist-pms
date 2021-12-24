@@ -1,0 +1,103 @@
+{% extends "base.html" %} {% load static %}
+
+<!--  -->
+{% block title %} Fare - {{ block.super }} {% endblock title %}
+<!--  -->
+{% block styles %}
+<style>
+  table {
+    text-align: center;
+    width: 750px;
+    border-collapse: collapse;
+  }
+
+  th {
+    background: #3498db;
+    color: white;
+    font-weight: bold;
+  }
+
+  td,
+  th {
+    padding: 10px;
+    border: 1px solid #ccc;
+    font-size: 18px;
+  }
+
+  .labels tr td {
+    background-color: #2cc16a;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  .label tr td label {
+    display: block;
+  }
+</style>
+{% endblock styles %}
+<!--  -->
+{% block content %}
+<div class="container py-4">
+  <div class="row">
+    <div class="mx-auto">
+      <div class="card">
+        <div
+          class="card-header text-center text-capitalize bg-primary text-white"
+        >
+          <h4>Fare of Vehicles for parking</h4>
+        </div>
+        <div class="card-body">
+          <table>
+            <thead>
+              <tr>
+                <th>Type of Vehicle</th>
+                <th>Four Wheelers(car etc)</th>
+                <th>Three Wheelers(Auto, Battery Rickshaw etc)</th>
+                <th>Two Wheelers(Scooter, Bike etc)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Upto 6 Hours</td>
+                <td>30</td>
+                <td>20</td>
+                <td>15</td>
+              </tr>
+              <tr>
+                <td>Upto 12 Hours</td>
+                <td>50</td>
+                <td>35</td>
+                <td>25</td>
+              </tr>
+              <tr>
+                <td>More than 12 hours</td>
+                <td>60</td>
+                <td>40</td>
+                <td>30</td>
+              </tr>
+              <tr>
+                <td>Monthly Charges</td>
+                <td>1200</td>
+                <td>900</td>
+                <td>600</td>
+              </tr>
+              <tr>
+                <td>Night Charges(Extra)(00:00Hrs to 05:00Hrs - Daily)</td>
+                <td>60</td>
+                <td>50</td>
+                <td>30</td>
+              </tr>
+              <tr>
+                <td>Night Charges(Extra)(00:00Hrs to 05:00Hrs - Monthly)</td>
+                <td>1200</td>
+                <td>900</td>
+                <td>600</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

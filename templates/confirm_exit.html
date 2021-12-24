@@ -1,0 +1,154 @@
+{% extends "base.html" %} {% load custom_template_tags %} {% load static %}
+
+<!--  -->
+{% block title %} Payable Amount - {{ block.super }} {% endblock title %}
+<!--  -->
+{% block styles %}
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+
+body {
+  
+  font-family: "Inter", sans-serif;
+  background-color: #ededed;
+}
+
+.receipt {
+  background-color: #fff;
+  width: 22rem;
+  position: relative;
+  padding: 1rem;
+  box-shadow: 0 -0.4rem 1rem -0.4rem rgba(0,0,0,0.2);
+}
+
+.receipt:after {
+  background-image: linear-gradient(135deg, #fff 0.5rem, transparent 0), linear-gradient(-135deg, #fff 0.5rem, transparent 0);
+    background-position: left-bottom;
+    background-repeat: repeat-x;
+    background-size: 1rem;
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -1rem;
+    left: 0;
+    width: 100%;
+    height: 1rem;
+}
+
+.receipt__header {
+  text-align: center;
+}
+
+.receipt__title {
+  color: #FF619B;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 1rem 0 0.5rem;
+}
+
+.receipt__date {
+  font-size: 0.8rem;
+  color: #666;
+  margin: 0.5rem 0 1rem;
+}
+
+.receipt__list {
+  margin: 2rem 0 1rem;
+  padding: 0 1rem;
+}
+
+.receipt__list-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+  position: relative;
+}
+
+.receipt__list-row:after {
+  content: '';
+  display: block;
+  border-bottom: 1px dotted rgba(0,0,0,0.15);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: -0.25rem;
+  z-index: 1
+}
+
+.receipt__item {
+  background-color: #fff;
+  z-index: 2;
+  padding: 0 0.15rem 0 0;
+  color: #1f1f1f;
+}
+
+.receipt__cost {
+  margin: 0;
+  padding: 0 0 0 0.15rem;
+  background-color: #fff;
+  z-index: 2;
+  color: #1f1f1f;
+}
+
+.receipt__list-row--total {
+  border-top: 1px solid #FF619B;
+  padding: 1.5rem 0 0;
+  margin: 1.5rem 0 0;
+  font-weight: 700;
+}
+</style>
+{% endblock styles %}
+<!--  -->
+{% block content %}  
+<section id="plots" class="py-4">
+  <div class="container">
+    <div class="row justify-content-center align-items-center">
+
+      <div class="receipt">
+  <header class="receipt__header">
+    <p class="receipt__title">
+      {{ plot.plot_no.plot_type | upper }} Wheelar
+    </p>
+    <p class="receipt__date"><b>{% show_price plot.plot_no.plot_type %} {% show_currency plot.plot_no.plot_type%}/hr</b></p>
+  </header>
+  <dl class="receipt__list">
+    <div class="receipt__list-row">
+      <dt class="receipt__item">Floor</dt>
+      <dd class="receipt__cost">{{ plot.plot_no.floor | adder }}</dd>
+    </div>
+    <div class="receipt__list-row">
+      <dt class="receipt__item">Plot No</dt>
+      <dd class="receipt__cost">{{ plot.plot_no.plot_no | adder }}</dd>
+    </div>
+
+    <div class="receipt__list-row">
+      <dt class="receipt__item">Block</dt>
+      <dd class="receipt__cost">{{ plot.plot_no.block }} </dd>
+    </div>
+    
+    <div class="receipt__list-row">
+      <dt class="receipt__item">Total Hours</dt>
+      <dd class="receipt__cost"><b>{% total_hours user plot.id %}</b></dd>
+    </div>
+    
+    <div class="receipt__list-row receipt__list-row--total">
+      <dt class="receipt__item">Total Amount</dt>
+      <dd class="receipt__cost">{% calculate_fare user plot.id plot.plot_no.plot_type %} {% show_currency plot.plot_no.plot_type %}</dd>
+    </div>
+  </dl>
+  <hr>
+            <a  href="{% url 'parking:exit' plot.plot_id plot.id %}"
+              ><button onclick="javascript:alert('Are you sure?')"
+                style="position: relative"
+                type="button"
+                class="btn btn-primary btn-block"
+              >
+                PAID
+              </button></a
+            >
+</div>
+
+    </div>
+  </div>
+</section>
+{% endblock content %}

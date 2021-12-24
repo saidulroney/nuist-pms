@@ -1,0 +1,198 @@
+{% extends "base.html" %} {% load static %}
+
+<!--  -->
+{% block title %} Welcome - {{ block.super }} {% endblock title %}
+<!--  -->
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/testimonials.css' %}" />
+{% endblock styles %}
+<!--  -->
+{% block content %}
+<!-- Alerts -->
+{% include "partials/_alerts.html" %}
+<section id="showcase">
+  <div class="container text-center">
+    <div class="home-search p-5">
+      <div class="overlay p-5">
+        <h1 class="display-4 mb-4">We Have The Best Deals For Parking Lots!</h1>
+        <p class="lead">
+          Short Stay and Valet parking options are just a few minutes' walk away from the terminal. If you're opting for Long Stay, the car park is best for you. 
+        </p>
+      </div>
+    </div>
+  </div>
+  <video loop muted autoplay playsinline>
+    <source src="{% static 'video/gmp-video-720.mp4' %}" type="video/mp4" />
+  </video>
+</section>
+
+<section id="services" class="py-5 bg-secondary text-white">
+  <div class="container">
+    <h2
+      style="position: relative"
+      class="display-5 text-center mb-4 font-weight-bold"
+    >
+      Why Choose Us?
+    </h2>
+
+    <div class="row text-center">
+      <div class="col-md-4">
+        <i class="fas fa-money-check-alt fa-4x mr-4"></i>
+        <hr />
+        <h3>Save Money</h3>
+        <p>
+          Save up to 70% on our site compared to the cost of on-other parking.
+        </p>
+      </div>
+      <div class="col-md-4">
+        <i class="fas fa-clock fa-4x mr-4"></i>
+        <hr />
+        <h3>Save Time</h3>
+        <p>
+          It’s easy to compare parking at all major parking system. Booking a reservation is quick & simple!
+        </p>
+      </div>
+      <div class="col-md-4">
+        <i class="fas fa-thumbs-up fa-4x mr-4"></i>
+        <hr />
+        <h3>Save Stress</h3>
+        <p>
+          Guarantee your parking spot by booking in advance. Can’t make it? Cancellations are free.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="testimonials" class="py-5">
+  <h3
+    style="position: relative"
+    class="display-5 d-block text-center mb-4 font-weight-bold"
+  >
+    What Our Customers Say
+  </h3>
+  <div class="testimonials">
+    <article class="card card--wide card--violet">
+      <div class="card__header">
+        <img
+          class="card__reviewer-pic"
+          src="{% static 'img/user.png' %}"
+          alt="Mr Lee picture"
+        />
+        <h5>Mr Lee</h5>
+        <h6>Nanjing</h6>
+      </div>
+      <div class="card__body">
+        <p class="card__intro">
+          I really likes the services
+        </p>
+        <p class="card__review">
+          “ Everyone I know really likes the services. Thank you for effective and expedient help as well as easy booking! Stay awesome! 
+          <br> <br>
+          Parking lots tend to be sources of water pollution because of their extensive impervious surfaces. Most existing lots have limited or no facilities to control runoff. Many areas today also require minimum landscaping in parking lots to provide.
+          ”
+        </p>
+      </div>
+    </article>
+
+    <atricle class="card card--gray">
+      <div class="card__header">
+        <img
+          class="card__reviewer-pic"
+          src="{% static 'img/user.png' %}"
+          alt="Jonathan Wu picture"
+        />
+        <h5>Jonathan Wu</h5>
+        <h6>Shanghai</h6>
+      </div>
+      <div class="card__body">
+        <p class="card__intro">
+          The team was very supportive and kept me motivated
+        </p>
+        <p class="card__review">
+          “I absolutely adore this awesome service, because it is vital to have a guaranteed parking spot whenever you need it! Thank you so much and good luck in the future! ”
+        </p>
+      </div>
+    </atricle>
+
+    <article class="card card--long card--white">
+      <div class="card__header">
+        <img
+          class="card__reviewer-pic"
+          src="{% static 'img/user.png' %}"
+          alt="Kira Zhou picture"
+        />
+        <h5>Kira Zhou</h5>
+        <h6>Xuzhou</h6>
+      </div>
+      <div class="card__body">
+        <p class="card__intro">
+          Such a life-changing experience. Highly recommended!
+        </p>
+        <p class="card__review">
+          “Simple and easy-to-use app, perfect for my daily commute to work. Saves me the stress of having to look for a parking spot in the morning.
+          <br> <br>
+          Many municipalities require a minimum number of parking spaces, depending on the floor area in a store or the number of bedrooms in an apartment complex. In the US, each state's Department of Transportation sets the ratio.
+          
+          ”
+        </p>
+      </div>
+    </article>
+
+    <article class="card card--white">
+      <div class="card__header">
+        <img
+          class="card__reviewer-pic"
+          src="{% static 'img/user.png' %}"
+          alt="Jeanette Wang picture"
+        />
+        <h5>David Wang</h5>
+        <h6>Shanghai</h6>
+      </div>
+      <div class="card__body">
+        <p class="card__intro">Thanks for the amazing options for car parking</p>
+        <p class="card__review">
+          “What a nice parking service! Thanks for the amazing options for car parking spots around our city. Having such a reliable backup is liberating.”
+        </p>
+      </div>
+    </article>
+    <article class="card card--white">
+      <div class="card__header">
+        <img
+          class="card__reviewer-pic"
+          src="{% static 'img/user.png' %}"
+          alt="Jeanette Xue picture"
+        />
+        <h5>Jeanette Xue</h5>
+        <h6>Anhui</h6>
+      </div>
+      <div class="card__body">
+        <p class="card__intro">An overall wonderful and rewarding experience</p>
+        <p class="card__review">
+          “I absolutely adore this awesome service, because it is vital to have a guaranteed parking spot whenever you need it! Thank you so much and good luck in the future!”
+        </p>
+      </div>
+    </article>
+
+    <article class="card card--wide card--black">
+      <div class="card__header">
+        <img
+          class="card__reviewer-pic"
+          src="{% static 'img/user.png' %}"
+          alt="Patrick Abrams picture"
+        />
+        <h5>Patrick Qi</h5>
+        <h6>Yangzhou</h6>
+      </div>
+      <div class="card__body">
+        <p class="card__intro">
+          Thanks for the amazing options.
+        </p>
+        <p class="card__review">
+          “What a nice parking service! Thanks for the amazing options for car parking spots around our city. Having such a reliable backup is liberating.”
+        </p>
+      </div>
+    </article>
+  </div>
+</section>
+{% endblock content %}

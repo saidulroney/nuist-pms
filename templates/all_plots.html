@@ -1,0 +1,173 @@
+{% extends "base.html" %} {% load static %} {% load custom_template_tags %}  
+{% block title %} Available Plots - {{ block.super }} {% endblock title %} 
+{% block content %}
+<section id="showcase-inner" class="py-5 text-white">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-md-12">
+        <h1 class="display-6">Browse Our All Available Plots</h1>
+        <p class="lead">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt,
+          pariatur!
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="plots" class="py-4">
+  <div class="container">
+    <div class="row">
+      {% if plots %} {% for plot in plots %}
+      <!-- IF FOUR WHEELAR -->
+      {% if plot.plot_type == 'four' %}
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card listing-preview">
+          <img
+            class="card-img-top"
+            src="{% static 'img/four_wheelar.png' %}"
+            alt=""
+          />
+          <div class="card-img-overlay">
+            <h2>
+              <span  style="font-size: 65%" class="badge badge-primary text-white">
+                {% show_price plot.plot_type %} 
+                {% show_currency plot.plot_type%}/hr</span
+              >
+            </h2>
+          </div>
+          <div class="card-body">
+            <div class="listing-heading text-center">
+              <h4 class="text-primary">{{ plot.plot_type | upper }} Wheelar</h4>
+              <p>
+                <i class="fas fa-map-marker text-primary"></i>
+                <!--  -->
+                Floor: {{ plot.floor | adder }}
+              </p>
+            </div>
+            <hr />
+            <div class="row py-2 text-primary">
+              <div class="col-6">
+                <i class="fas fa-th-large"></i>
+                Plot No: {{ plot.plot_no | adder }} 
+              </div>
+              <div class="col-6">
+                <i class="fas fa-car"></i> Block: {{ plot.block }} 
+              </div>
+            </div>
+
+            <hr />
+            <a
+              href="{% url 'parking:confirm-booking' plot.id %}"
+              class="btn btn-primary btn-block"
+              >Book</a
+            >
+          </div>
+        </div>
+      </div>
+      <!-- IF THREE WHEELER -->
+      {% elif plot.plot_type == 'three' %}
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card listing-preview">
+          <img
+            class="card-img-top"
+            src="{% static 'img/three_wheelaar.png' %}"
+            alt=""
+          />
+          <div class="card-img-overlay">
+            <h2>
+              <span
+                style="font-size: 65%"
+                class="badge badge-primary text-white"
+              >
+                {% show_price plot.plot_type %} 
+                {% show_currency plot.plot_type%}/hr</span
+              >
+            </h2>
+          </div>
+          <div class="card-body">
+            <div class="listing-heading text-center">
+              <h4 class="text-primary">{{ plot.plot_type | upper }} Wheelar</h4>
+              <p>
+                <i class="fas fa-map-marker text-primary"></i>
+                <!--  -->
+                Floor: {{ plot.floor | adder }}
+              </p>
+            </div>
+            <hr />
+            <div class="row py-2 text-primary">
+              <div class="col-6">
+                <i class="fas fa-th-large"></i>
+                Plot No: {{ plot.plot_no | adder }} 
+              </div>
+              <div class="col-6">
+                <i class="fas fa-car"></i> Block: {{ plot.block }}
+              </div>
+            </div>
+
+            <hr />
+            <a
+              href="{% url 'parking:confirm-booking' plot.id %}"
+              class="btn btn-primary btn-block"
+              >Book</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- IF TWO WHEELAR -->
+      {% else %}
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card listing-preview">
+          <img
+            class="card-img-top"
+            src="{% static 'img/two_wheelaar.png' %}"
+            alt=""
+          />
+          <div class="card-img-overlay">
+          <h2>
+            <span  style="font-size: 65%" class="badge badge-primary text-white">
+              {% show_price plot.plot_type %} 
+              {% show_currency plot.plot_type%}/hr</span
+            >
+            </h2>
+          </div>
+          <div class="card-body">
+            <div class="listing-heading text-center">
+              <h4 class="text-primary">{{ plot.plot_type | upper }} Wheelar</h4>
+              <p>
+                <i class="fas fa-map-marker text-primary"></i>
+                <!--  -->
+                Floor: {{ plot.floor | adder }}
+              </p>
+            </div>
+            <hr />
+            <div class="row py-2 text-primary">
+              <div class="col-6">
+                <i class="fas fa-th-large"></i>
+                Plot No: {{ plot.plot_no | adder }} 
+              </div>
+              <div class="col-6">
+                <i class="fas fa-car"></i> Block: {{ plot.block }}
+              </div>
+            </div>
+
+            <hr />
+            <a
+              href="{% url 'parking:confirm-booking' plot.id %}"
+              class="btn btn-primary btn-block"
+              >Book</a
+            >
+          </div>
+        </div>
+      </div>
+      {% endif %} {% endfor %} {% else %}
+      <div class="col-md-12">
+        <p>No Plots Available</p>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% endblock content %}

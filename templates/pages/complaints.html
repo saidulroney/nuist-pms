@@ -1,0 +1,173 @@
+{% extends "base.html" %} {% load static %}
+
+<!--  -->
+{% block title %} Complaints - {{ block.super }} {% endblock title %}
+<!--  -->
+{% block styles %}
+<style>
+  body {
+    background: -webkit-linear-gradient(left, #e1e8f1, #d4d9da);
+  }
+  label {
+    font-weight: bold;
+  }
+  .complain-form {
+    background: #fff;
+    margin-top: 4%;
+    margin-bottom: 4%;
+    width: 70%;
+  }
+  .complain-form .form-control {
+    border-radius: 1rem;
+  }
+  .complain-image {
+    text-align: center;
+  }
+  .complain-image img {
+    border-radius: 6rem;
+    width: 11%;
+    margin-top: -3%;
+    transform: rotate(29deg);
+  }
+  .complain-form form {
+    padding: 10%;
+  }
+  .complain-form form .row {
+    margin-bottom: -7%;
+  }
+  .complain-form h3 {
+    margin-bottom: 8%;
+    margin-top: -10%;
+    text-align: center;
+    color: #0062cc;
+  }
+  .complain-form .btncomplain {
+    width: 50%;
+    border: none;
+    border-radius: 1rem;
+    padding: 1.5%;
+    background: #dc3545;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+  }
+  .btncomplainSubmit {
+    width: 50%;
+    border-radius: 1rem;
+    padding: 1.5%;
+    color: #fff;
+    background-color: #0062cc;
+    border: none;
+    cursor: pointer;
+  }
+</style>
+{% endblock styles %}
+<!--  -->
+{% block content %}
+<section id="showcase-inner" class="py-5 text-white">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-md-12">
+        <h1 class="display-6">Complaints</h1>
+        <p class="lead">
+          Sorry for the inconvenience 😔 <br />
+          Please register your complaint here.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="form">
+  <div class="container complain-form">
+    <!-- Alerts -->
+    {% include "partials/_alerts.html" %}
+    <div class="complain-image">
+      <img src="{% static 'img/rocket_contact.png' %}" alt="rocket_contact" />
+    </div>
+    <form method="POST" action="{% url 'pages:complaints' %}">
+      {% csrf_token %}
+
+      <h3>Fill Your Complaints</h3>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="name">Name: </label>
+            <input
+              id="name"
+              type="text"
+              name="name"
+              class="form-control"
+              placeholder="Enter Your Name "
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="email">Email: </label>
+            <input
+              id="email"
+              type="email"
+              name="email"
+              class="form-control"
+              placeholder="Enter Your Email"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="contactno">Contact Number:</label>
+            <input
+              id="contactno"
+              type="tel"
+              name="contact_no"
+              class="form-control"
+              placeholder="Enter Your Contact Number"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="compType">Complaint Type: </label>
+            <input
+              id="compType"
+              type="text"
+              name="complaint_type"
+              class="form-control"
+              placeholder="Lost and found, Misbehaviour, Damage to vehicle etc"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="submit"
+              name="btnSubmit"
+              class="btncomplain"
+              value="Send Message"
+            />
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="msg">Address: </label>
+            <textarea
+              id="address"
+              name="address"
+              class="form-control"
+              placeholder="Your Address"
+              style="width: 100%; height: 150px"
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <label for="msg">Message: </label>
+            <textarea
+              id="msg"
+              name="message"
+              class="form-control"
+              placeholder="Your Message *"
+              style="width: 100%; height: 150px"
+            ></textarea>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+{% endblock content %}
